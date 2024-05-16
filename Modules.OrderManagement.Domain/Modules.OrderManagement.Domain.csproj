@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modules.CustomerManagement.Domain\Modules.CustomerManagement.Domain.csproj" />
+    <ProjectReference Include="..\Modules.ProductCatalog.Domain\Modules.ProductCatalog.Domain.csproj" />
+    <ProjectReference Include="..\Modules.ShoppingCart.Domain\Modules.ShoppingCart.Domain.csproj" />
+    <ProjectReference Include="..\Shared.Utilities\Shared.Utilities.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Entities\" />
+  </ItemGroup>
+
+</Project>

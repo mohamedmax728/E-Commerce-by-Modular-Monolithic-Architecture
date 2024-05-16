@@ -1,0 +1,6 @@
+@Modules.ProductCatalog.Api_HostAddress = http://localhost:5043
+
+GET {{Modules.ProductCatalog.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
