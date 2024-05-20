@@ -15,7 +15,7 @@ namespace Modules.CustomerManagement.Api.Controllers
     {
         // GET: api/<AuthController>
         [HttpPost("Register")]
-        public async ActionResult<Task<ServiceResponse<string>>> Register([FromBody] UserRegisterDto registerDto)
+        public async Task<ActionResult<ServiceResponse<string>>> Register([FromBody] UserRegisterDto registerDto)
         {
             var response = await authService.Register(registerDto);
             if (!response.Success)
