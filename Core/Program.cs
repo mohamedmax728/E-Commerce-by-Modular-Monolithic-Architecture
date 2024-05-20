@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Shared.Infrastructre.Context;
+using Shared.Infrastructre.Health;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ Modules.ProductCatalog.Api.DependencyInjection.RegisterServices(builder.Services
 Modules.ShoppingCart.Api.DependencyInjection.RegisterServices(builder.Services);
 Modules.OrderManagement.Api.DependencyInjection.RegisterServices(builder.Services);
 builder.Services.AddHealthChecks()
+.AddCheck<StripeHealthCheck>("Stripe")
 .AddSqlServer(_configuration["ConnectionStrings"])
 .AddDbContextCheck<AppDbContext>();
 
