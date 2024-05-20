@@ -10,6 +10,8 @@ namespace Core
             services.AddHttpContextAccessor();
             //services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddMemoryCache();
+
         }
     }
 }

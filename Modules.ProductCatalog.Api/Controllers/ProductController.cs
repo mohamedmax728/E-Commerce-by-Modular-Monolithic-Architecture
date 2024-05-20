@@ -1,6 +1,7 @@
 ﻿using EmployeeManagementSystem.Domain.Shared;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Modules.ProductCatalog.Application.Dtos;
 using Modules.ProductCatalog.Application.Interfaces;
 using PagedList;
@@ -12,6 +13,7 @@ namespace Modules.ProductCatalog.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+    [EnableRateLimiting("fixed")]
     public class ProductController : ControllerBase
     {
         private readonly IProductService _service;
