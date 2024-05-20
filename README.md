@@ -4,11 +4,11 @@ Building E-Commerce Application :
 2- Product Catalog.
 3- Order Management.
 4- Shopping Cart.
-5- Payment GateWay.
+5- Payment Gateway.
 
-I Build This Applcation Using :
+I Build This Application Using :
 
-1-Modular Monolithic Arcitecture.
+1-Modular Monolithic Architecture.
 2-Health Check.
 3-Rate Limiter.
 4-OrchardCore Package to run all Modules as one Application.
@@ -17,5 +17,6 @@ I Build This Applcation Using :
 7-Generic Services.
 8-Asp.net Core Web Api
 9-C#
-10-Sql Server
+10-SQL Server
 11-Entity Framework Core
+12-Stripe
