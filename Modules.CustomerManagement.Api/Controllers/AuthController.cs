@@ -38,12 +38,20 @@ namespace Modules.CustomerManagement.Api.Controllers
         [HttpPost("Login")]
         public async Task<ActionResult<ServiceResponse<string>>> Login([FromBody] UserLoginDto loginDto)
         {
-            ServiceResponse<string> response = await authService.Login(loginDto);
-            if (!response.Success)
+            using var x = metrics.MeasureRequestDuration();
+            try
             {
-                return BadRequest(response);
+                ServiceResponse<string> response = await authService.Login(loginDto);
+                if (!response.Success)
+                {
+                    return BadRequest(response);
+                }
+                return Ok(response);
             }
-            return Ok(response);
+            finally
+            {
+                metrics.IncrementEcommerceRequestCounter();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore.Query;
-using PagedList;
+using PagedList.Core;
 using Shared.Utilities.Models.Models;
 using System.Linq.Expressions;
 

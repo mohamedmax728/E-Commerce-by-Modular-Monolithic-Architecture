@@ -1,5 +1,5 @@
 ﻿using EmployeeManagementSystem.Domain.Shared;
-using PagedList;
+using PagedList.Core;
 
 namespace Utilities.Shared.Services.GenericServices.IServices
 {

@@ -4,7 +4,7 @@ using EmployeeManagementSystem.Domain.Shared;
 using Microsoft.Extensions.Caching.Memory;
 using Modules.ProductCatalog.Application.Dtos;
 using Modules.ProductCatalog.Application.Interfaces;
-using PagedList;
+using PagedList.Core;
 using Shared.Utilities.Models.Entities;
 using System.Net;
 using Utilities.Shared.Services.GenericServices.Services;

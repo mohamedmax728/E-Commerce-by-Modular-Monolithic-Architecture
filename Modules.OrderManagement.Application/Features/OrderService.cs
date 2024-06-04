@@ -36,7 +36,7 @@ namespace Modules.OrderManagement.Application.Features
             {
                 return new ServiceResponse
                 {
-                    Message = "You Have To Add Any Product To Cart ,To Checkout",
+                    Message = "You Have To Add Any Product To Cart, To Checkout",
                     StatusCode = StatusCodes.Status400BadRequest,
                     Success = false,
                 };

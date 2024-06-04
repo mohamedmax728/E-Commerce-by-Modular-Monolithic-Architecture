@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Modules.ShoppingCart.Application.Dtos.ShoppingCart;
 using Modules.ShoppingCart.Application.Interfaces;
-using PagedList;
+using PagedList.Core;
 using Shared.Utilities.Models.Entities;
 using System.Security.Claims;
 using Utilities.Shared.Services.GenericServices.Services;

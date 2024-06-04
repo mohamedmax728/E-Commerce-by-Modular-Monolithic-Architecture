@@ -25,7 +25,7 @@ namespace Shared.Infrastructre.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=ModularMonoECommerce;Integrated Security=True;TrustServerCertificate=Yes;");
+                optionsBuilder.UseSqlServer("Server=localhost,1433;Database=ModularMonoECommerce;Integrated Security=True;TrustServerCertificate=Yes;");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -47,6 +47,13 @@ namespace Shared.Infrastructre.Context
                 .HasOne(s => s.Order)
                 .WithOne(s => s.Payment)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            foreach (var property in modelBuilder.Model.GetEntityTypes()
+                .SelectMany(t => t.GetProperties())
+                .Where(p => p.ClrType == typeof(decimal) || p.ClrType == typeof(decimal?)))
+            {
+                property.SetColumnType("decimal(18,2)");
+            }
         }
     }
 }

@@ -1,0 +1,47 @@
+﻿version: '3.4'
+
+volumes:
+    linuxaspnetcoredata:
+
+networks:
+    linuxaspnetcore:
+        driver: bridge
+
+services:
+  sqlServer:
+    image: 'mcr.microsoft.com/mssql/server:2022-latest'
+    container_name: SqlServer.Ecommerce.MonoModular
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: 'Y'
+      MSSQL_SA_PASSWORD: "P@ssword123"
+      MSSQL_PID: Evaluation
+      MSSQL_DATABASE: "MonoModular"
+      MSSQL_USER: "sa"
+      MSSQL_PASSWORD: "P@ssword123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - linuxaspnetcoredata:/var/opt/mssql
+    networks:
+      - linuxaspnetcore
+  core-dev:
+    image: '${DOCKER_REGISTRY-}core'
+    container_name: Ecommerce.api
+    build: 
+       context: .
+       dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - sqlServer
+    ports:
+      - '8080:8080'
+      - '8081:8081'
+    environment:
+      - DatabaseServer=sqlServer
+      - DatabasePort=1433
+      - DatabaseName=MonoModular
+      - DatabaseUser=sa
+      - DatabaseUserPassword=P@ssword123
+    networks:
+      - linuxaspnetcore

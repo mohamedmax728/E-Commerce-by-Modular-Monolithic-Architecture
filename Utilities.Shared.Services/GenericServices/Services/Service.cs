@@ -2,7 +2,7 @@
 using EasyRepository.EFCore.Generic;
 using EmployeeManagementSystem.Domain.Shared;
 using Microsoft.EntityFrameworkCore.Query;
-using PagedList;
+using PagedList.Core;
 using Shared.Utilities.Models;
 using System.Linq.Expressions;
 using System.Net;

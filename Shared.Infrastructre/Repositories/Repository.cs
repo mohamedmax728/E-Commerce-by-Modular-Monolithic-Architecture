@@ -2,7 +2,7 @@
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
-using PagedList;
+using PagedList.Core;
 using Shared.Infrastructre.Context;
 using Shared.Utilities.Models;
 using Shared.Utilities.Models.Models;

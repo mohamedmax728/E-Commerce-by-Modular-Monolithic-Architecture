@@ -8,10 +8,14 @@ namespace Core
           IServiceCollection services)
         {
             services.AddHttpContextAccessor();
-            //services.AddScoped<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddMetrics();
             services.AddMemoryCache();
 
+            Modules.CustomerManagement.Api.DependencyInjection.RegisterServices(services);
+            Modules.ProductCatalog.Api.DependencyInjection.RegisterServices(services);
+            Modules.ShoppingCart.Api.DependencyInjection.RegisterServices(services);
+            Modules.OrderManagement.Api.DependencyInjection.RegisterServices(services);
         }
     }
 }
